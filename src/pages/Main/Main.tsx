@@ -1,8 +1,9 @@
 ﻿import React from 'react';
+import styles from './styles.module.css';
 
 const Main = () => {
     return (
-        <div>
+        <div className={styles.main}>
           Hello world, second!  
         </div>
     );
