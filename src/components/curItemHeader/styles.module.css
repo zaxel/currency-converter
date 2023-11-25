@@ -1,0 +1,12 @@
+﻿.cur_header{
+    display: flex;
+    color: #fff;
+    font-weight: 500;
+    font-size: 22px;
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+}
+.cur_header > div{
+    flex: 1 0 auto;
+    padding: 8px;
+    text-align: center;
+}
