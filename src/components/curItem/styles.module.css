@@ -1,12 +1,18 @@
-﻿.cur_item{
+﻿p{
+    margin-left: 4px;
+}
+.cur_item{
     display: flex;
     color: #33E4D4;
     border-bottom: 1px solid rgba(0, 0, 0, .4);
     font-weight: 300;
-    font-size: 20px;
+    font-size: 18px;
+}
+.cur_item:hover{
+    background-color: #295A5F;;
 }
 .cur_item > div{
-    padding: 8px;
+    padding: 2px 8px;
     text-align: center;
 }
 .cur_item__cur{
@@ -17,8 +23,8 @@
 .cur_item__flag_l,
 .cur_item__flag_r{
     position: relative;
-    width: 35px;
-    height: 20px;
+    width: 30px;
+    height: 25px;
     object-fit: cover;
 
 }
