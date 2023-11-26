@@ -1,6 +1,11 @@
 ﻿export interface IFieldsetProps{
     legend: string,
     options: string[],
-    initNumber: number,
-    isDisabled: boolean
+    val: string,
+    isDisabled: boolean,
+    onInputChange: (e: React.ChangeEvent<HTMLInputElement>)=>void
+}
+
+export interface IConverterProps{
+    rate: number
 }

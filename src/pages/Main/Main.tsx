@@ -11,7 +11,7 @@ const Main = () => {
         <CurItemHeader />
         <CurList />
       </div>
-       <Converter />
+       <Converter rate={1.5}/>
     </div>
   );
 };

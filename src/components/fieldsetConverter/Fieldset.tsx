@@ -1,21 +1,16 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import Form from 'react-bootstrap/Form';
 import styles from './styles.module.css';
 import { IFieldsetProps } from '../../interfaces';
 
 
 
-const Fieldset = ({legend, options=[], initNumber, isDisabled}: IFieldsetProps) => {
-    const [inputNumber, setInputNumber] = useState(initNumber.toString());
-
-    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputNumber(Number(e.target.value).toFixed(2));
-    }
+const Fieldset = ({onInputChange, legend, options=[], val, isDisabled}: IFieldsetProps) => {
     return (
         <fieldset>
             <legend>{legend}</legend>
 
-            <Form.Control disabled={isDisabled} value={+inputNumber} onChange={onInputChange} className={styles.input_number} type="number" placeholder="amount" step={0.1} />
+            <Form.Control disabled={isDisabled} value={+val} onChange={onInputChange} className={styles.input_number} type="number" placeholder="amount" step={0.1} />
 
             <Form.Select className={styles.select}>
                 {options.map((op,i)=>{
