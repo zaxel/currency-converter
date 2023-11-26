@@ -1,0 +1,1 @@
+﻿export const InitValue: number = 1;

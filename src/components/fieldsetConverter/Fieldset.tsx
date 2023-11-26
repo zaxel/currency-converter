@@ -1,15 +1,11 @@
 ﻿import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import styles from './styles.module.css';
+import { IFieldsetProps } from '../../interfaces';
 
-interface props{
-    legend: string,
-    options: string[],
-    initNumber: number,
-    isDisabled: boolean
-}
 
-const Fieldset = ({legend, options=[], initNumber, isDisabled}: props) => {
+
+const Fieldset = ({legend, options=[], initNumber, isDisabled}: IFieldsetProps) => {
     const [inputNumber, setInputNumber] = useState(initNumber.toString());
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

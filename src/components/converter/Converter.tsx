@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import styles from './styles.module.css';
 import swap from '../../assets/converter/swap.png';
 import Fieldset from '../fieldsetConverter/Fieldset';
+import { InitValue } from '../../constants';
 
 
 const Converter = () => {
@@ -15,11 +16,11 @@ const Converter = () => {
 
 
             <Form className={styles.form}>
-                <Fieldset legend={'change'} options={optionsLeft} initNumber={1} isDisabled={false}/>
+                <Fieldset legend={'change'} options={optionsLeft} initNumber={InitValue} isDisabled={false}/>
                 <Button className={styles.button}>
                     <img width={20} height={20} src={swap} alt="swap currencies around" />
                 </Button>
-                <Fieldset legend={'get'} options={optionsRight} initNumber={1} isDisabled={true}/>
+                <Fieldset legend={'get'} options={optionsRight} initNumber={InitValue} isDisabled={true}/>
             </Form>
         </div>
     );
