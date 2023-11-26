@@ -3,15 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styles from './styles.module.css';
 import swap from '../../assets/converter/swap.png';
-import { InitValue } from '../../constants';
+import { CurOptions, InitValue } from '../../constants';
 import Fieldset from '../fieldsetConverter/Fieldset';
 import { IConverterProps } from '../../interfaces';
+import { log } from 'console';
 
 
 
 const Converter = ({rate}: IConverterProps) => {
-    const optionsLeft: Array<string> = ['UAH', 'USD', 'GBP', 'CHZ', 'PZL'];
-    const optionsRight: Array<string> = ['USD', 'UAH', 'GBP', 'CHZ'];
     
     
 
@@ -24,21 +23,28 @@ const Converter = ({rate}: IConverterProps) => {
         setInputFrom(val);
         setInputTo(getConvertedVal(val, rate));
     }
+    const onSelectFromChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectFrom(e.target.value)
+    }
+    const onSelectToChange = (e: any) => {
+        setSelectTo(e.target.value);
+    }
     
     const [inputFrom, setInputFrom] = useState(InitValue);
     const [inputTo, setInputTo] = useState(getConvertedVal(InitValue, rate));
-    
+    const [selectFrom, setSelectFrom] = useState('UAH');
+    const [selectTo, setSelectTo] = useState('CHF');
 
     return (
         <div className={styles.converter}>
 
 
             <Form className={styles.form}>
-                <Fieldset onInputChange={onInputChange} legend={'change'} options={optionsLeft} val={inputFrom} isDisabled={false}/>
+                <Fieldset onSelectChange={onSelectFromChange} selectVal={selectFrom} onInputChange={onInputChange} legend={'change'} options={CurOptions} val={inputFrom} isDisabled={false}/>
                 <Button className={styles.button}>
                     <img width={20} height={20} src={swap} alt="swap currencies around" />
                 </Button>
-                <Fieldset onInputChange={onInputChange} legend={'get'} options={optionsRight} val={inputTo} isDisabled={true}/>
+                <Fieldset onSelectChange={onSelectToChange} selectVal={selectTo} onInputChange={onInputChange} legend={'get'} options={CurOptions} val={inputTo} isDisabled={true}/>
             </Form>
         </div>
     );
