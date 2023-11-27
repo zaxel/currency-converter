@@ -15,7 +15,7 @@
     width: 45px;
     margin-bottom: 8px;
 }
-.converter .form .button:where(:hover, :active, :focus) {
+.converter .form .button:where(:hover) {
     background-color: #295A5F;
 }
 

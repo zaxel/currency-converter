@@ -29,6 +29,8 @@ legend {
     color: #26303B;
     background-color: #4FD2C7;
 }
-.select:where(:hover, :active, :focus) {
+.select:where(:hover){
+    cursor: pointer;
     background-color: #295A5F;
+    color: #4FD2C7;
 }
