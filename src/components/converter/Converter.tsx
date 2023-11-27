@@ -3,22 +3,29 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styles from './styles.module.css';
 import swap from '../../assets/converter/swap.png';
-import { CurOptions, InitValue, Rates } from '../../constants';
+import { CurOptions } from '../../constants';
 import Fieldset from '../fieldsetConverter/Fieldset';
-import { IConverterProps, OperationsTypes } from '../../interfaces';
 import { getConvertedVal } from '../../helpers/calcConverteValue';
+import { useFromCurStore } from '../../store/fromCurState';
+import { useToCurStore } from '../../store/toCurState';
 
 
 
 const Converter = () => {
+    const inputFrom = useFromCurStore((state) => state.inputFrom);
+    const setInputFrom = useFromCurStore((state) => state.updateInputFrom);
+
+    const selectFrom = useFromCurStore((state) => state.selectFrom);
+    const setSelectFrom = useFromCurStore((state) => state.updateSelectFrom);
     
-    const [inputFrom, setInputFrom] = useState(InitValue);
-    const [inputTo, setInputTo] = useState('1');
-    const [selectFrom, setSelectFrom] = useState('UAH');
-    const [selectTo, setSelectTo] = useState('CHF');
+    const inputTo = useToCurStore((state) => state.inputTo);
+    const setInputTo = useToCurStore((state) => state.updateInputTo);
+
+    const selectTo = useToCurStore((state) => state.selectTo);
+    const setSelectTo = useToCurStore((state) => state.updateSelectTo);
 
     useEffect(()=>{
-        setInputTo(getConvertedVal(inputFrom));
+        setInputTo(getConvertedVal(inputFrom, selectFrom, selectTo));
     },[inputFrom, inputTo, selectFrom, selectTo])
     
 
@@ -33,13 +40,9 @@ const Converter = () => {
     const onSelectToChange = (e: any) => {
         setSelectTo(e.target.value);
     }
-    
-    
 
     return (
         <div className={styles.converter}>
-
-
             <Form className={styles.form}>
                 <Fieldset onSelectChange={onSelectFromChange} selectVal={selectFrom} onInputChange={onInputChange} legend={'change'} options={CurOptions} val={inputFrom} isDisabled={false}/>
                 <Button className={styles.button}>
