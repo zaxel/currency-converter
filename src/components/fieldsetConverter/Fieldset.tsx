@@ -14,7 +14,7 @@ const Fieldset = ({onInputChange, val, onSelectChange, selectVal, legend, option
 
             <Form.Select value={selectVal} onChange={onSelectChange} className={styles.select}>
                 {options.map((op,i)=>{
-                        return <option value={op}>{op}</option> 
+                        return <option value={op} key={op}>{op}</option> 
                 })}
                 
             </Form.Select>
