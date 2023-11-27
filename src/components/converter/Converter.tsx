@@ -6,7 +6,6 @@ import swap from '../../assets/converter/swap.png';
 import { CurOptions, InitValue } from '../../constants';
 import Fieldset from '../fieldsetConverter/Fieldset';
 import { IConverterProps } from '../../interfaces';
-import { log } from 'console';
 
 
 
