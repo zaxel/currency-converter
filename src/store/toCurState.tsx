@@ -1,9 +1,10 @@
 ﻿import { create } from 'zustand'
 import { InitValue } from '../constants'
+import { CurrenciesType } from '../interfaces'
 
 type State = {
   inputTo: string
-  selectTo: string
+  selectTo: CurrenciesType
 }
 
 type Action = {

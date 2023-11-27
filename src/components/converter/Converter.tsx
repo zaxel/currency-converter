@@ -8,6 +8,8 @@ import Fieldset from '../fieldsetConverter/Fieldset';
 import { getConvertedVal } from '../../helpers/calcConverteValue';
 import { useFromCurStore } from '../../store/fromCurState';
 import { useToCurStore } from '../../store/toCurState';
+import { CurrenciesType } from '../../interfaces';
+import { onSwapButtonChange } from '../../helpers/swapFromTo';
 
 
 
@@ -35,17 +37,20 @@ const Converter = () => {
         
     }
     const onSelectFromChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectFrom(e.target.value)
+        setSelectFrom(e.target.value as CurrenciesType)
     }
-    const onSelectToChange = (e: any) => {
-        setSelectTo(e.target.value);
+    const onSelectToChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectTo(e.target.value as CurrenciesType);
+    }
+    const onSwapButtonChangeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+        onSwapButtonChange(inputTo, selectTo, selectFrom, setInputFrom, setSelectFrom, setSelectTo)
     }
 
     return (
         <div className={styles.converter}>
             <Form className={styles.form}>
                 <Fieldset onSelectChange={onSelectFromChange} selectVal={selectFrom} onInputChange={onInputChange} legend={'change'} options={CurOptions} val={inputFrom} isDisabled={false}/>
-                <Button className={styles.button}>
+                <Button onClick={onSwapButtonChangeHandler} className={styles.button}>
                     <img width={20} height={20} src={swap} alt="swap currencies around" />
                 </Button>
                 <Fieldset onSelectChange={onSelectToChange} selectVal={selectTo} onInputChange={onInputChange} legend={'get'} options={CurOptions} val={inputTo} isDisabled={true}/>
