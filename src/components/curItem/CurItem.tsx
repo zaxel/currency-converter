@@ -2,6 +2,7 @@
 import { IRate } from '../../interfaces';
 import { getFlag } from '../../helpers/getFlag';
 import ua from '../../assets/flags/ua.svg';
+import { formateRate } from '../../helpers/formateRate';
 
 type Props = Omit<IRate, 'base_ccy'>;
 
@@ -18,8 +19,8 @@ const CurItem = ({ccy, buy, sale}:Props) => {
                 </div>
                 <p className={styles.cur_item__name_r}>UAH</p>
             </div>
-            <div className={styles.cur_item__price}>{Number(buy).toFixed(2)}</div>
-            <div className={styles.cur_item__price}>{Number(sale).toFixed(2)}</div>
+            <div className={styles.cur_item__price}>{formateRate(buy)}</div>
+            <div className={styles.cur_item__price}>{formateRate(sale)}</div>
         </li>
     );
 };
