@@ -23,6 +23,10 @@ export interface IRate{
     sale: string
 }
 
+export interface IRates{
+    rates: Array<IRate>
+}
+
 export type CurrenciesType = | "UAH" | "CHF"| "CZK"| "GBP" | "ILS" | "JPY" | "NOK" | "PLZ" | "SEK";
 
 export type OperationsTypes = | "buy" | "sale";

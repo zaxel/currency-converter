@@ -4,6 +4,11 @@ export const InitValue: string = '1';
 
 export const CurOptions: Array<CurrenciesType> = ["UAH", "CHF", "CZK", "GBP", "ILS", "JPY", "NOK", "PLZ", "SEK"];
 
+export const ProxyURL: string = 'https://cors.eu.org/';
+export const SourceURL: string = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=4';
+export const URL: string = ProxyURL + SourceURL;
+
+//not in use
 export const Rates: Array<IRate> = [
     {
         "ccy": "CHF",

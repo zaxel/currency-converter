@@ -1,19 +1,18 @@
-﻿import { Rates } from "../constants";
-import { CurrenciesType } from "../interfaces";
+﻿import { CurrenciesType, IRate } from "../interfaces";
 
-function basicCurSellRates(ccy: CurrenciesType){
+function basicCurSellRates(ccy: CurrenciesType, rates: Array<IRate>){
     if(ccy==="UAH")
         return 1;
-    return Number(Rates.find(el=>el.ccy===ccy)?.buy);
+    return Number(rates.find(el=>el.ccy===ccy)?.buy);
 }
-function basicCurBuyRates(ccy: CurrenciesType){
+function basicCurBuyRates(ccy: CurrenciesType, rates: Array<IRate>){
     if(ccy==="UAH")
         return 1;
-    return Number(Rates.find(el=>el.ccy===ccy)?.sale);
+    return Number(rates.find(el=>el.ccy===ccy)?.sale);
 }
-export const getConvertedVal = (val: string, selectFrom: CurrenciesType, selectTo: CurrenciesType): string => {
-    const basicCurSell = basicCurSellRates(selectFrom);
-    const basicCurBuy = basicCurBuyRates(selectTo);
+export const getConvertedVal = (rates: Array<IRate>, val: string, selectFrom: CurrenciesType, selectTo: CurrenciesType): string => {
+    const basicCurSell = basicCurSellRates(selectFrom, rates);
+    const basicCurBuy = basicCurBuyRates(selectTo, rates);
 
     return ((+val*basicCurSell)/basicCurBuy).toFixed(2)
 }

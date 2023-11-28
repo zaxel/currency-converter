@@ -3,15 +3,17 @@ import styles from './styles.module.css';
 import CurList from '../../components/curList/CurList';
 import CurItemHeader from '../../components/curItemHeader/CurItemHeader';
 import Converter from '../../components/converter/Converter';
+import { IRates } from '../../interfaces';
 
-const Main = () => {
+
+const Main = ({rates}: IRates) => {
   return (
     <div className={styles.main}>
       <div className="currencies_data">
         <CurItemHeader />
-        <CurList />
+        <CurList rates={rates}/>
       </div>
-       <Converter/>
+       <Converter rates={rates}/>
     </div>
   );
 };

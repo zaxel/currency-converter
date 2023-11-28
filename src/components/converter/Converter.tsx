@@ -8,12 +8,12 @@ import Fieldset from '../fieldsetConverter/Fieldset';
 import { getConvertedVal } from '../../helpers/calcConverteValue';
 import { useFromCurStore } from '../../store/fromCurState';
 import { useToCurStore } from '../../store/toCurState';
-import { CurrenciesType } from '../../interfaces';
+import { CurrenciesType, IRates } from '../../interfaces';
 import { onSwapButtonChange } from '../../helpers/swapFromTo';
 
 
 
-const Converter = () => {
+const Converter = ({rates}: IRates) => {
     const inputFrom = useFromCurStore((state) => state.inputFrom);
     const setInputFrom = useFromCurStore((state) => state.updateInputFrom);
 
@@ -27,7 +27,7 @@ const Converter = () => {
     const setSelectTo = useToCurStore((state) => state.updateSelectTo);
 
     useEffect(()=>{
-        setInputTo(getConvertedVal(inputFrom, selectFrom, selectTo));
+        setInputTo(getConvertedVal(rates, inputFrom, selectFrom, selectTo));
     },[inputFrom, inputTo, selectFrom, selectTo])
     
 

@@ -1,12 +1,13 @@
 ﻿import React from 'react';
 import styles from './styles.module.css';
 import CurItem from '../curItem/CurItem';
-import { Rates } from '../../constants';
+import { IRates } from '../../interfaces';
 
-const CurList = () => {
+
+const CurList = ({rates}: IRates) => {
     return (
         <ul className={styles.currency__list}>
-            {Rates.map(item=>{
+            {rates.map(item=>{
                 return <CurItem key={item.ccy} ccy={item.ccy} buy={item.buy} sale={item.sale}/>
             })}
             
