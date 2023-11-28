@@ -27,6 +27,11 @@ export interface IRates{
     rates: Array<IRate>
 }
 
+export interface IServiceProps{
+    text: string, 
+    color: string
+}
+
 export type CurrenciesType = | "UAH" | "CHF"| "CZK"| "GBP" | "ILS" | "JPY" | "NOK" | "PLZ" | "SEK";
 
 export type OperationsTypes = | "buy" | "sale";

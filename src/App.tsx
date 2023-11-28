@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import useSWR from 'swr'
 import { URL } from './constants';
+import Service from './pages/Service/Service';
 
 function App() {
 
@@ -18,15 +19,10 @@ function App() {
   };
 
   const { data: rates, error, isLoading } = useSWR(URL, fetcher)
-  if (error){
-    return <div style={{display: 'table-cell',width: '100dvw', height: '100dvh', fontSize: '48px', fontWeight: '500', color: 'red', textAlign: 'center', verticalAlign: 'middle'}}>Error</div>
-  }
-  if (isLoading){
-    return <div style={{display: 'table-cell',width: '100dvw', height: '100dvh', fontSize: '48px', fontWeight: '500', color: '#FCFDFD', textAlign: 'center', verticalAlign: 'middle'}}>Loading</div>
-  }
-  console.log(rates);
-
- 
+  if (error)
+    return <Service text='Oops, something went wrong!' color='red'/>
+  if (isLoading)
+    return <Service text='Loading...' color='#FCFDFD'/>
 
 
   return (
