@@ -17,8 +17,8 @@ export interface IConverterProps{
     rate: number
 }
 export interface IRate{
-    ccy: string,
-    base_ccy: string,
+    ccy: CurrenciesType,
+    base_ccy: CurrenciesType,
     buy: string,
     sale: string
 }
