@@ -9,7 +9,7 @@
     font-size: 18px;
 }
 .cur_item:hover{
-    background-color: #295A5F;;
+    background-color: #295A5F;
 }
 .cur_item > div{
     padding: 2px 6px;
@@ -48,9 +48,4 @@
     height: 100%;
     border-radius: 7px;
 
-}
-.cur_item__price{
-    flex: 1 0 80px;
-
-    font-weight: 600;
 }

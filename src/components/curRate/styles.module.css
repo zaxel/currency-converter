@@ -1,0 +1,52 @@
+﻿.static_container,
+.input_container{
+    flex: 1 0 80px;
+    font-weight: 600;
+    position: relative;
+}
+.static_container__img{
+    position: absolute;
+    right: 15%;
+    top: -20%;
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+    background-color: #FCFDFD;
+    border-radius: 2px;
+}
+.static_container__img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+.confirmBtns__container{
+    position: absolute;
+    top: -35%;
+    right: 0;
+    
+}
+.confirmBtns__container button{
+    width: 20px;
+    height: 18px;
+    line-height: 1;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4FD2C7;
+    border: 1px solid #26303B;
+    border-radius: 2px;
+    background-color: #FCFDFD;
+    margin-left: 2px;
+}
+.confirmBtns__container button:not(:disabled):hover{
+    background-color: #295A5F;;
+}
+.confirmBtns__container button:nth-child(2){
+    color: red;
+}
+.disabled{
+    opacity: .3;
+
+}
