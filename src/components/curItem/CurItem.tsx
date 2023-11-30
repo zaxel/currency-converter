@@ -26,8 +26,8 @@ const CurItem = ({ ccy, buy, sale }: Props) => {
                 </div>
 
             </div>
-            <CurRate rate={buy}/>
-            <CurRate rate={sale}/>
+            <CurRate rate={buy} operation='buy' ccy={ccy}/>
+            <CurRate rate={sale} operation='sale' ccy={ccy}/>
             {/* <div className={styles.cur_item__price}>{formateRate(buy)}</div> */}
             {/* <div className={styles.cur_item__price}>{formateRate(sale)}</div> */}
         </li>
