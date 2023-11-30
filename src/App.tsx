@@ -4,23 +4,23 @@ import Main from './pages/Main/Main';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import useSWR from 'swr'
-import { URL } from './constants';
+import { Rates, URL } from './constants';
 import Service from './pages/Service/Service';
 import { fetcher } from './helpers/fetcher';
 
 function App() {
-  const { data: rates, error, isLoading } = useSWR(URL, fetcher);
+  // const { data: rates, error, isLoading } = useSWR(URL, fetcher);
 
-  if (error)
-    return <Service text='Oops, something went wrong!' color='red'/>
-  if (isLoading)
-    return <Service text='Loading...' color='#FCFDFD'/>
+  // if (error)
+  //   return <Service text='Oops, something went wrong!' color='red'/>
+  // if (isLoading)
+  //   return <Service text='Loading...' color='#FCFDFD'/>
 
 
   return (
     <div className='wrapper'>
       <Header />
-      <Main rates={rates}/>
+      <Main rates={Rates}/>
       <Footer />
     </div>
   )
