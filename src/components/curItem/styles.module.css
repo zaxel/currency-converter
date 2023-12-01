@@ -49,3 +49,10 @@
     border-radius: 7px;
 
 }
+
+@media screen and (max-width: 400px){
+    .cur_item__flag_l,
+    .cur_item__flag_r{
+        display: none;
+    }
+}

@@ -1,27 +1,25 @@
-﻿fieldset{
+﻿fieldset {
     flex: 0 1 45%;
     border: 1px solid #FCFDFD;
     border-radius: 5px;
-    
+
     display: flex;
     padding: 0 3px 3px 3px;
 }
-
-
 legend {
     color: #FCFDFD;
     font-size: 18px;
     margin-left: 8px;
     margin-bottom: 3px;
-    float:none;
-    width:auto;
+    float: none;
+    width: auto;
     padding: 0 6px;
 }
-.input_number{
+.input_number {
     color: #26303B;
     padding: 2px;
 }
-.select{
+.select {
     max-width: 68px;
     margin-left: 4px;
     font-size: 13px;
@@ -29,8 +27,25 @@ legend {
     color: #26303B;
     background-color: #4FD2C7;
 }
-.select:where(:hover){
+.select:where(:hover) {
     cursor: pointer;
     background-color: #295A5F;
     color: #4FD2C7;
+}
+
+@media screen and (max-width: 400px) {
+    fieldset {
+        flex-direction: column;
+    }
+    .select {
+        max-width: 100%;
+
+        margin-left: 0px;
+        font-size: 13px;
+        padding-left: 3px;
+    }
+    .input_number {
+        padding-left: 3px;
+        margin-bottom: 3px;
+    }
 }

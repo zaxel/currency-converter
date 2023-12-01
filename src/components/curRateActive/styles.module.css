@@ -35,3 +35,15 @@
     opacity: .3;
 
 }
+
+@media (pointer:coarse){
+    .confirmBtns__container button{
+        width: 34px;
+        height: 26px;
+        border-radius: 4px;
+        margin-left: 4px;
+    }
+    .confirmBtns__container{
+        top: -60%;
+    }
+}
