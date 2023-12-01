@@ -12,7 +12,6 @@ const Fieldset = ({onInputChange, val, onSelectChange, selectVal, legend, option
                 {options.map((op,i)=>{
                         return <option value={op} key={op}>{op}</option> 
                 })}
-                
             </Form.Select>
         </fieldset>
     );

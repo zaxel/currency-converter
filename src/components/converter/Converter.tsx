@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styles from './styles.module.css';
@@ -8,17 +8,14 @@ import Fieldset from '../fieldsetConverter/Fieldset';
 import { getConvertedVal } from '../../helpers/calcConverteValue';
 import { useFromCurStore } from '../../store/fromCurState';
 import { useToCurStore } from '../../store/toCurState';
-import { CurrenciesType, IRates, OperationsTypes } from '../../interfaces';
+import { CurrenciesType, IRates } from '../../interfaces';
 import { onSwapButtonChange } from '../../helpers/swapFromTo';
 import { useIsRateChanged } from '../../hooks/useIsRateChanged';
 import { useChangedRatesState } from '../../store/changedRatesState';
 import { filterCurrencies } from '../../helpers/filterCurrencies';
 
 
-
 const Converter = ({ rates }: IRates) => {
-
-
     const inputFrom = useFromCurStore((state) => state.inputFrom);
     const setInputFrom = useFromCurStore((state) => state.updateInputFrom);
 
@@ -31,17 +28,13 @@ const Converter = ({ rates }: IRates) => {
     const selectTo = useToCurStore((state) => state.selectTo);
     const setSelectTo = useToCurStore((state) => state.updateSelectTo);
 
-    
-
     const [isSaleRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo}).saleCur, 'sale');
     const [isBuyRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo}).buyCur, 'buy');
     const changedRates = useChangedRatesState((state) => state.rates);
 
-
     useEffect(() => {
         setInputTo(getConvertedVal(rates, changedRates, inputFrom, selectFrom, selectTo, isSaleRateChanged, isBuyRateChanged));
     }, [inputFrom, inputTo, selectFrom, selectTo, changedRates])
-
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = Number(e.target.value).toFixed(2)

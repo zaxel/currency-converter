@@ -1,9 +1,4 @@
-﻿import { SetStateAction } from "react";
-import { FormControlProps } from "react-bootstrap";
-
-
-
-export interface IFieldsetProps{
+﻿export interface IFieldsetProps{
     legend: string,
     options: string[],
     isDisabled: boolean,

@@ -6,7 +6,6 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
-
                 <div className={styles.logo_container}>
                     <div className={styles.logo__img}>
                         <a href="https:\\google.com">

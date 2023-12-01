@@ -11,6 +11,9 @@ import { fetcher } from './helpers/fetcher';
 import { useEmptyChangedCurrenciesStore } from './hooks/useEmptyChangedCurrenciesStore';
 
 function App() {
+  ////in case of CORS error use Rates json exported from constants as mock-data
+  ////comment useSwr line, and all related conditional checks 
+
   // const { data: rates, error, isLoading } = useSWR(URL, fetcher);
   
   const setEmptyRates = useEmptyChangedCurrenciesStore(rates || []);
@@ -23,8 +26,6 @@ function App() {
   //   return <Service text='Oops, something went wrong!' color='red'/>
   // if (isLoading)
   //   return <Service text='Loading...' color='#FCFDFD'/>
-
-
 
   return (
     <div className='wrapper'>

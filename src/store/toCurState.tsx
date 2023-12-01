@@ -12,7 +12,6 @@ type Action = {
   updateSelectTo: (selectTo: State['selectTo']) => void
 }
 
-// Create your store, which includes both state and (optionally) actions
 export const useToCurStore = create<State & Action>((set) => ({
   inputTo: InitValue,
   selectTo: 'CHF',

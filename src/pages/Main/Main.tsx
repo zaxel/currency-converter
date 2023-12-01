@@ -5,7 +5,6 @@ import CurItemHeader from '../../components/curItemHeader/CurItemHeader';
 import Converter from '../../components/converter/Converter';
 import { IRates } from '../../interfaces';
 
-
 const Main = ({rates}: IRates) => {
   return (
     <div className={styles.main}>

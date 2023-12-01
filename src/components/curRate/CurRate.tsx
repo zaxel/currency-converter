@@ -6,8 +6,6 @@ import CurRateInactive from '../curRateInactive/CurRateInactive';
 import CurRateActive from '../curRateActive/CurRateActive';
 import { ifFitsLimits } from '../../helpers/ifFitsLimits';
 
-
-
 const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
     const [rateData, setRateData] = useState('0');
     const [displayInput, setDisplayInput] = useState(false);
