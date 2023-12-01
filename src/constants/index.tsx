@@ -1,7 +1,7 @@
 ﻿import { CurrenciesType, IRate } from "../interfaces";
 
 export const InitValue: string = '1';
-export const FetchReqBeforeError: number = 40;
+export const FetchReqBeforeError: number = 4;
 
 export const CurOptions: Array<CurrenciesType> = ["UAH", "CHF", "CZK", "GBP", "ILS", "JPY", "NOK", "PLZ", "SEK"];
 

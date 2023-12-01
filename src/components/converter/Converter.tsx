@@ -12,11 +12,9 @@ import { CurrenciesType, IRates, OperationsTypes } from '../../interfaces';
 import { onSwapButtonChange } from '../../helpers/swapFromTo';
 import { useIsRateChanged } from '../../hooks/useIsRateChanged';
 import { useChangedRatesState } from '../../store/changedRatesState';
+import { filterCurrencies } from '../../helpers/filterCurrencies';
 
-interface IFilterReturnData {
-    saleCur: CurrenciesType,
-    buyCur: CurrenciesType,
-}
+
 
 const Converter = ({ rates }: IRates) => {
 
@@ -33,15 +31,10 @@ const Converter = ({ rates }: IRates) => {
     const selectTo = useToCurStore((state) => state.selectTo);
     const setSelectTo = useToCurStore((state) => state.updateSelectTo);
 
-    const filterCurrencies = (): IFilterReturnData => {
-        if (selectFrom === 'UAH' || selectTo === 'UAH') {
-            return { saleCur: selectTo, buyCur: selectTo }
-        }
-        return { saleCur: selectTo, buyCur: selectFrom }
-    }
+    
 
-    const [isSaleRateChanged] = useIsRateChanged(filterCurrencies().saleCur, 'sale');
-    const [isBuyRateChanged] = useIsRateChanged(filterCurrencies().buyCur, 'buy');
+    const [isSaleRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo}).saleCur, 'sale');
+    const [isBuyRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo}).buyCur, 'buy');
     const changedRates = useChangedRatesState((state) => state.rates);
 
 
@@ -53,7 +46,6 @@ const Converter = ({ rates }: IRates) => {
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = Number(e.target.value).toFixed(2)
         setInputFrom(val);
-
     }
     const onSelectFromChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectFrom(e.target.value as CurrenciesType)

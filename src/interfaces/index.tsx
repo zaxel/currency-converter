@@ -38,6 +38,15 @@ export interface ICurRatesProps{
     ccy: string
 }
 
+export interface IFilterReturnData { 
+    saleCur: CurrenciesType,
+    buyCur: CurrenciesType,
+}
+export interface IFilterProps { 
+    selectFrom: CurrenciesType,
+    selectTo: CurrenciesType,
+}
+
 export type CurrenciesType = | "UAH" | "CHF"| "CZK"| "GBP" | "ILS" | "JPY" | "NOK" | "PLZ" | "SEK";
 
 export type OperationsTypes = | "buy" | "sale";
