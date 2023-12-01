@@ -2,7 +2,6 @@
 import { IRate } from '../../interfaces';
 import { getFlag } from '../../helpers/getFlag';
 import ua from '../../assets/flags/ua.svg';
-import { formateRate } from '../../helpers/formateRate';
 import CurRate from '../curRate/CurRate';
 
 type Props = Omit<IRate, 'base_ccy'>;
@@ -28,9 +27,7 @@ const CurItem = ({ ccy, buy, sale }: Props) => {
             </div>
             <CurRate rate={buy} operation='buy' ccy={ccy}/>
             <CurRate rate={sale} operation='sale' ccy={ccy}/>
-            {/* <div className={styles.cur_item__price}>{formateRate(buy)}</div> */}
-            {/* <div className={styles.cur_item__price}>{formateRate(sale)}</div> */}
-        </li>
+        </li> 
     );
 };
 

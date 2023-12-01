@@ -3,8 +3,13 @@ import { formateRate } from '../../helpers/formateRate';
 import styles from './styles.module.css';
 import { Form } from 'react-bootstrap';
 import pencil_image from '../../assets/converter/pencil.svg';
+import { useIsRateChanged } from '../../hooks/useIsRateChanged';
+import { ICurRatesProps } from '../../interfaces';
+import { useChangedRatesState } from '../../store/changedRatesState';
 
-const CurRate = ({ rate }: { rate: string }) => {
+
+
+const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
     
     
     const [rateData, setRateData] = useState('0');
@@ -12,10 +17,18 @@ const CurRate = ({ rate }: { rate: string }) => {
     const [input, setInput] = useState(formateRate(rate));
     const [displayEditableIcon, setDisplayEditableIcon] = useState(false);
     const [confirmBtnDisabled, setConfirmBtnDisabled] = useState(false);
+    
+    
+
+    const addRates = useChangedRatesState((state) => state.addRates);
 
     useEffect(()=>{
         setRateData(()=>rate);
     },[])
+
+    const saveToChangedRatesState = () => {
+        addRates({ rate: input, operation, ccy})
+    }
     
 
     const ifFitsLimits = (modifiedRate: string) => {
@@ -30,6 +43,9 @@ const CurRate = ({ rate }: { rate: string }) => {
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(formateRate(e.target.value));
         setConfirmBtnDisabled(!ifFitsLimits(e.target.value));
+
+
+
     }
     const onStatContainerClick = () => {
         setDisplayInput(true)
@@ -38,7 +54,10 @@ const CurRate = ({ rate }: { rate: string }) => {
     const onConfirmBtnClick = () => {
         setRateData(()=>input);
         setDisplayInput(false);
-        setDisplayEditableIcon(false)
+        setDisplayEditableIcon(false);
+
+        saveToChangedRatesState();
+
     }
     const onRejectBtnClick = () => {
         setInput(formateRate(rate));
