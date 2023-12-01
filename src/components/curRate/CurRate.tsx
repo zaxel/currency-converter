@@ -7,6 +7,7 @@ import { useIsRateChanged } from '../../hooks/useIsRateChanged';
 import { ICurRatesProps } from '../../interfaces';
 import { useChangedRatesState } from '../../store/changedRatesState';
 import CurRateInactive from '../curRateInactive/CurRateInactive';
+import CurRateActive from '../curRateActive/CurRateActive';
 
 
 
@@ -27,9 +28,9 @@ const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
         setRateData(()=>rate);
     },[])
 
-    const saveToChangedRatesState = () => {
-        addRates({ rate: input, operation, ccy})
-    }
+    // const saveToChangedRatesState = () => {
+    //     addRates({ rate: input, operation, ccy})
+    // }
     
 
     const ifFitsLimits = (modifiedRate: string) => {
@@ -57,7 +58,7 @@ const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
         setDisplayInput(false);
         setDisplayEditableIcon(false);
 
-        saveToChangedRatesState();
+        addRates({ rate: input, operation, ccy});
 
     }
     const onRejectBtnClick = () => {
@@ -68,22 +69,16 @@ const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
 
     return (
         displayInput
-            ? <div className={styles.input_container}>
-                <Form.Control value={+input} onChange={onInputChange} className={styles.input_number} type="number" placeholder="amount" step={0.1} />
-                <div className={styles.confirmBtns__container}>
-                    <button disabled={confirmBtnDisabled} className={confirmBtnDisabled ? styles.disabled : ''} onClick={onConfirmBtnClick}>v</button>
-                    <button onClick={onRejectBtnClick}>x</button>
-                </div>
-                </div>
-
-
-
+            ? <CurRateActive input={input}
+                             onInputChange={onInputChange} 
+                             confirmBtnDisabled={confirmBtnDisabled} 
+                             onConfirmBtnClick={onConfirmBtnClick} 
+                             onRejectBtnClick={onRejectBtnClick}/>
+            
             : <CurRateInactive setDisplayEditableIcon={setDisplayEditableIcon} 
                                 onStatContainerClick={onStatContainerClick} 
                                 displayEditableIcon={displayEditableIcon}
                                 rateData={rateData}/> 
-                
-            
     )
 }
 

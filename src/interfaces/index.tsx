@@ -47,6 +47,13 @@ export interface ICurRateInactiveProps{
     displayEditableIcon: boolean, 
     rateData: string
 }
+export interface ICurRateActiveProps {
+    input: string,
+     onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void, 
+     confirmBtnDisabled: boolean, 
+     onConfirmBtnClick: ()=>void, 
+     onRejectBtnClick: ()=>void
+}
 
 export type CurrenciesType = | "UAH" | "CHF"| "CZK"| "GBP" | "ILS" | "JPY" | "NOK" | "PLZ" | "SEK";
 export type OperationsTypes = | "buy" | "sale";
