@@ -2,10 +2,11 @@
 import { formateRate } from '../../helpers/formateRate';
 import styles from './styles.module.css';
 import { Form } from 'react-bootstrap';
-import pencil_image from '../../assets/converter/pencil.svg';
+
 import { useIsRateChanged } from '../../hooks/useIsRateChanged';
 import { ICurRatesProps } from '../../interfaces';
 import { useChangedRatesState } from '../../store/changedRatesState';
+import CurRateInactive from '../curRateInactive/CurRateInactive';
 
 
 
@@ -18,7 +19,7 @@ const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
     const [displayEditableIcon, setDisplayEditableIcon] = useState(false);
     const [confirmBtnDisabled, setConfirmBtnDisabled] = useState(false);
     
-    
+     
 
     const addRates = useChangedRatesState((state) => state.addRates);
 
@@ -73,19 +74,16 @@ const CurRate = ({ rate, operation, ccy}: ICurRatesProps) => {
                     <button disabled={confirmBtnDisabled} className={confirmBtnDisabled ? styles.disabled : ''} onClick={onConfirmBtnClick}>v</button>
                     <button onClick={onRejectBtnClick}>x</button>
                 </div>
-            </div>
+                </div>
 
 
 
-            : <div className={styles.static_container} 
-                onMouseOver={()=>setDisplayEditableIcon(true)} 
-                onMouseOut={()=>setDisplayEditableIcon(false)}
-                onClick={onStatContainerClick}>
-                    {displayEditableIcon && <div className={styles.static_container__img} > 
-                        <img src={pencil_image} alt='editable content icon' />
-                </div>}
-                <div className={styles.item_static}>{formateRate(rateData)}</div>
-            </div>
+            : <CurRateInactive setDisplayEditableIcon={setDisplayEditableIcon} 
+                                onStatContainerClick={onStatContainerClick} 
+                                displayEditableIcon={displayEditableIcon}
+                                rateData={rateData}/> 
+                
+            
     )
 }
 

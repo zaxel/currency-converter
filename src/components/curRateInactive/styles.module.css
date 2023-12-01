@@ -1,0 +1,24 @@
+﻿.static_container,
+.input_container{
+    flex: 1 0 80px;
+    font-weight: 600;
+    position: relative;
+}
+.static_container__img{
+    position: absolute;
+    right: 15%;
+    top: -20%;
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+    background-color: #FCFDFD;
+    border-radius: 2px;
+}
+.static_container__img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
