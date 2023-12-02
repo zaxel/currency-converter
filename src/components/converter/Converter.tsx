@@ -28,8 +28,8 @@ const Converter = ({ rates }: IRates) => {
     const selectTo = useToCurStore((state) => state.selectTo);
     const setSelectTo = useToCurStore((state) => state.updateSelectTo);
 
-    const [isSaleRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo}).saleCur, 'sale');
-    const [isBuyRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo}).buyCur, 'buy');
+    const [isSaleRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo, operation: 'sale'}, ).saleCur, 'sale');
+    const [isBuyRateChanged] = useIsRateChanged(filterCurrencies({selectFrom, selectTo, operation: 'buy'}).buyCur, 'buy');
     const changedRates = useChangedRatesState((state) => state.rates);
 
     useEffect(() => {

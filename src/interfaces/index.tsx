@@ -35,6 +35,7 @@ export interface IFilterReturnData {
 export interface IFilterProps { 
     selectFrom: CurrenciesType,
     selectTo: CurrenciesType,
+    operation: OperationsTypes
 } 
 export interface ICurRateInactiveProps{
     setDisplayEditableIcon: React.Dispatch<React.SetStateAction<boolean>>,
