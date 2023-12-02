@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/currency-converter/static/css/main.1bc6a24b.css",
+    "main.js": "/currency-converter/static/js/main.135cdeae.js",
+    "static/media/pencil.svg": "/currency-converter/static/media/pencil.3ec00dfa66e69baeb9bfb05af1a641a5.svg",
+    "static/media/il.svg": "/currency-converter/static/media/il.1d83ed8b93b89da04c329be64a226a59.svg",
+    "index.html": "/currency-converter/index.html",
+    "static/media/gb.svg": "/currency-converter/static/media/gb.516897fd3988e35032b772b026a19f75.svg",
+    "static/media/jp.svg": "/currency-converter/static/media/jp.d288d548026f04523965869470b09fc5.svg",
+    "static/media/no.svg": "/currency-converter/static/media/no.b9cc4fcdf51eb234607e1ffa96e3ff63.svg",
+    "static/media/ch.svg": "/currency-converter/static/media/ch.55323a0680e7c5ff735b3ef0b6a59555.svg",
+    "static/media/ua.svg": "/currency-converter/static/media/ua.423c68f9fb154fb2749b64a16d0968e1.svg",
+    "static/media/cz.svg": "/currency-converter/static/media/cz.5a24757d105fbe7a4e81f64549ec8d2e.svg",
+    "static/media/pl.svg": "/currency-converter/static/media/pl.2b5541c54505328dbc1b264a72369d23.svg",
+    "static/media/se.svg": "/currency-converter/static/media/se.369f685ebb83712ce954eac60af580b7.svg",
+    "main.1bc6a24b.css.map": "/currency-converter/static/css/main.1bc6a24b.css.map",
+    "main.135cdeae.js.map": "/currency-converter/static/js/main.135cdeae.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bc6a24b.css",
+    "static/js/main.135cdeae.js"
+  ]
+}
